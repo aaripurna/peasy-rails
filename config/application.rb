@@ -36,5 +36,6 @@ module Peasy
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.cache_store = :redis_cache_store, { url: ENV['CACHE_REDIS_URL'] }
   end
 end

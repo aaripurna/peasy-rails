@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uuid: 3c52ba7a-2f2d-421b-9df3-e276e5abe3b2
+  gender: male
+  name: 
+  location: 
+  age: 1
+
+two:
+  uuid: 1a5a310b-1b07-4433-8cf8-c27b25f80355
+  gender: female
+  name: 
+  location: 
+  age: 1

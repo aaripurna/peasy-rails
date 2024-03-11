@@ -24,6 +24,16 @@ class RandomUserService
 
   def parse_success_response(response)
     body = JSON.parse(response.body)
-    body["results"]
+    body["results"].map { |user_json| parse_user(user_json) }
+  end
+
+  def parse_user(user_json)
+    User.new(
+      id: user_json.dig("login", "uuid"),
+      gender: user_json["gender"],
+      name: user_json["name"],
+      location: user_json["location"],
+      age: user_json.dig("dob", "age")
+    )
   end
 end
