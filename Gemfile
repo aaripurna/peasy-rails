@@ -62,8 +62,13 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "webmock"
 end
 
 gem "sidekiq", "~> 7.2"
 
 gem "sidekiq-cron", "~> 1.12"
+
+gem "faraday", "~> 2.9"
+
+gem "vcr", "~> 6.2"
