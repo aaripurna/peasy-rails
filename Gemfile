@@ -63,6 +63,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webmock"
+  gem 'database_cleaner-active_record'
 end
 
 gem "sidekiq", "~> 7.2"

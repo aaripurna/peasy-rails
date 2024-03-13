@@ -1,10 +1,24 @@
 require "test_helper"
 
 class UserUpdaterServiceTest < ActiveSupport::TestCase
+  def before_setup
+    super
+    Rails.cache.clear
+  end
+
+  def after_teardown
+    Rails.cache.clear
+    super
+  end
+
   test "user does not exists" do
     VCR.use_cassette("success_get_users") do
       assert_difference('User.count', 20) { UserUpdaterService.new(limit: 20).perform }
     end
+
+    hourly = HourlyRecord.load
+    assert_equal 9, hourly.female_count
+    assert_equal 11, hourly.male_count
   end
 
   test "uuid exists" do
@@ -42,5 +56,9 @@ class UserUpdaterServiceTest < ActiveSupport::TestCase
     end
 
     assert_mock mock
+
+    hourly = HourlyRecord.load
+    assert_equal 10, hourly.female_count
+    assert_equal 10, hourly.male_count
   end
 end

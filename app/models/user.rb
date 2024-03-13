@@ -4,4 +4,12 @@ class User < ApplicationRecord
   def updatable_attributes
     slice("uuid", "gender", "name", "location", "age")
   end
+
+  def female?
+    gender == "female"
+  end
+
+  def male?
+    gender == "male"
+  end
 end
