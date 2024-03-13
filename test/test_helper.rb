@@ -3,6 +3,7 @@ require_relative "../config/environment"
 require "rails/test_help"
 require 'webmock/minitest'
 require 'vcr'
+require 'minitest/autorun'
 
 module ActiveSupport
   class TestCase
