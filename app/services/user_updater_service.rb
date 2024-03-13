@@ -18,13 +18,13 @@ class UserUpdaterService
       female_count, male_count = existing_users_count_by_gender(existing_users)
 
       User.upsert_all(users.map(&:updatable_attributes)) # rubocop:disable Rails/SkipsModelValidations
-      increment_hourly_record(female_count, male_count)
+      increment_hourly_record(users, female_count, male_count)
     end
   end
 
   private
 
-  def increment_hourly_record(female_count, male_count)
+  def increment_hourly_record(users, female_count, male_count)
     female_users, male_users = separate_by_gender(users)
 
     HourlyRecord.new(

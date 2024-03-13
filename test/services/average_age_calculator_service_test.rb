@@ -15,7 +15,6 @@ class AverageAgeCalculatorServiceTest < ActiveSupport::TestCase
     service = AverageAgeCalculatorService.new
 
     average_male, average_female = service.perform
-    debugger
     assert_equal 40, average_female.round
     assert_equal 41, average_male.round
   end
