@@ -1,0 +1,5 @@
+user_updater_hourly:
+  cron: "0 * * * *"
+  class: UserUpdaterHourlyJob
+  args:
+    - 20
