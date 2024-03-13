@@ -7,11 +7,11 @@ module HttpRequest
 
   included do
     HTTPClient = Faraday.new(
-      headers: {'Content-Type' => 'application/json'},
+      headers: { 'Content-Type' => 'application/json' },
       request: {
         open_timeout: OPEN_TIMEOUT,
         timeout: TIMEOUT
-      },
+      }
     )
   end
 end

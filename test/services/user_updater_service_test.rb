@@ -1,4 +1,6 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class UserUpdaterServiceTest < ActiveSupport::TestCase
   def before_setup
@@ -11,8 +13,8 @@ class UserUpdaterServiceTest < ActiveSupport::TestCase
     super
   end
 
-  test "user does not exists" do
-    VCR.use_cassette("success_get_users") do
+  test 'user does not exists' do
+    VCR.use_cassette('success_get_users') do
       assert_difference('User.count', 20) { UserUpdaterService.new(limit: 20).perform }
     end
 
@@ -21,25 +23,25 @@ class UserUpdaterServiceTest < ActiveSupport::TestCase
     assert_equal 11, hourly.male_count
   end
 
-  test "uuid exists" do
-    VCR.use_cassette("success_get_users") { UserUpdaterService.new(limit: 20).perform }
+  test 'uuid exists' do # rubocop:disable Metrics/BlockLength
+    VCR.use_cassette('success_get_users') { UserUpdaterService.new(limit: 20).perform }
     location = {
-      "city"=>"Foo",
-      "state"=>"Bar",
-      "street"=>{"name"=>"Andersons Bay Road", "number"=>2988},
-      "country"=>"FooBAR",
-      "postcode"=>82243,
-      "timezone"=>{"offset"=>"+9:00", "description"=>"Bangkok, Hanoi, Jakarta"},
-      "coordinates"=>{"latitude"=>"27.3832", "longitude"=>"23.4867"}
+      'city' => 'Foo',
+      'state' => 'Bar',
+      'street' => { 'name' => 'Andersons Bay Road', 'number' => 2988 },
+      'country' => 'FooBAR',
+      'postcode' => 82_243,
+      'timezone' => { 'offset' => '+9:00', 'description' => 'Bangkok, Hanoi, Jakarta' },
+      'coordinates' => { 'latitude' => '27.3832', 'longitude' => '23.4867' }
     }
 
     user = User.first
     new_user = User.new(
       uuid: user.uuid,
-      gender: "female",
-      name: {"last"=>"Bar", "first"=>"Foo", "title"=>"Ms"},
+      gender: 'female',
+      name: { 'last' => 'Bar', 'first' => 'Foo', 'title' => 'Ms' },
       age: 30,
-      location: location
+      location:
     )
 
     mock = Minitest::Mock.new
@@ -50,8 +52,8 @@ class UserUpdaterServiceTest < ActiveSupport::TestCase
 
       user = User.first
       assert_equal 30, user.age
-      assert_equal({"last"=>"Bar", "first"=>"Foo", "title"=>"Ms"}, user.name)
-      assert_equal "female", user.gender
+      assert_equal({ 'last' => 'Bar', 'first' => 'Foo', 'title' => 'Ms' }, user.name)
+      assert_equal 'female', user.gender
       assert_equal location, user.location
     end
 

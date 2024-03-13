@@ -1,8 +1,9 @@
-require "test_helper"
+# frozen_string_literal: true
 
+require 'test_helper'
 class UserUpdaterHourlyJobTest < ActiveJob::TestCase
-  test "test run update user" do
-    VCR.use_cassette("success_get_users") do
+  test 'test run update user' do
+    VCR.use_cassette('success_get_users') do
       assert_difference('User.count', 20) do
         assert_performed_jobs 1, only: [UserUpdaterHourlyJob] do
           UserUpdaterHourlyJob.perform_later(20)

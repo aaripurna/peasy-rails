@@ -1,4 +1,6 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class HourlyRecordTest < ActiveSupport::TestCase
   def before_setup
@@ -8,13 +10,13 @@ class HourlyRecordTest < ActiveSupport::TestCase
   def after_teardown
     Rails.cache.clear
   end
-  test "no record saved" do
+  test 'no record saved' do
     record = HourlyRecord.load
     assert_equal 0, record.male_count
     assert_equal 0, record.female_count
   end
 
-  test "save record" do
+  test 'save record' do
     record = HourlyRecord.new(male_count: 10, female_count: 12)
     record.save
 
@@ -23,7 +25,7 @@ class HourlyRecordTest < ActiveSupport::TestCase
     assert_equal r2.female_count, 12
   end
 
-  test "increment record" do
+  test 'increment record' do
     record = HourlyRecord.new(male_count: 10, female_count: 12)
     record.save
 
@@ -34,7 +36,7 @@ class HourlyRecordTest < ActiveSupport::TestCase
     assert_equal r2.female_count, 19
   end
 
-  test "increment negative" do
+  test 'increment negative' do
     record = HourlyRecord.new(male_count: 10, female_count: 12)
     record.save
 
@@ -44,7 +46,7 @@ class HourlyRecordTest < ActiveSupport::TestCase
     assert_equal r2.female_count, 5
   end
 
-  test "reset existing data" do
+  test 'reset existing data' do
     record = HourlyRecord.new(male_count: 10, female_count: 12)
     record.save
 

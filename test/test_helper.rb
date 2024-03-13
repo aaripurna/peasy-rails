@@ -1,13 +1,13 @@
-ENV["RAILS_ENV"] ||= "test"
-require_relative "../config/environment"
-require "rails/test_help"
+# frozen_string_literal: true
+
+ENV['RAILS_ENV'] ||= 'test'
+require_relative '../config/environment'
+require 'rails/test_help'
 require 'webmock/minitest'
 require 'vcr'
 require 'minitest/autorun'
 require_relative 'database_cleaner_support'
 require 'database_cleaner/active_record'
-
-
 
 DatabaseCleaner.clean_with :truncation
 DatabaseCleaner.strategy = :transaction
@@ -18,15 +18,14 @@ module ActiveSupport
     parallelize(workers: :number_of_processors)
 
     # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-    fixtures :all
+    # fixtures :all
 
     # Add more helper methods to be used by all tests here...
     include DatabaseCleanerSupport
   end
 end
 
-
 VCR.configure do |config|
-  config.cassette_library_dir = "fixtures/vcr_cassettes"
+  config.cassette_library_dir = 'fixtures/vcr_cassettes'
   config.hook_into :webmock
 end

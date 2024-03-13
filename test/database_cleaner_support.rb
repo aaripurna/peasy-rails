@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DatabaseCleanerSupport
   def before_setup
     super
