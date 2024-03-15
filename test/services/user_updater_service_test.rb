@@ -3,16 +3,6 @@
 require 'test_helper'
 
 class UserUpdaterServiceTest < ActiveSupport::TestCase
-  def before_setup
-    super
-    Rails.cache.clear
-  end
-
-  def after_teardown
-    Rails.cache.clear
-    super
-  end
-
   test 'user does not exists' do
     VCR.use_cassette('success_get_users') do
       assert_difference('User.count', 20) { UserUpdaterService.new(limit: 20).perform }

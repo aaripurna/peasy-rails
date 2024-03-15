@@ -13,10 +13,10 @@ class AverageAgeCalculatorService
   private
 
   def male_record
-    User.select('AVG(age) average_age').where(gender: :male)[0]
+    User.select(' COALESCE(AVG(age), 0) average_age').where(gender: :male)[0]
   end
 
   def female_record
-    User.select('AVG(age) average_age').where(gender: :female)[0]
+    User.select(' COALESCE(AVG(age), 0) average_age').where(gender: :female)[0]
   end
 end

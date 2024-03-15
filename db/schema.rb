@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_11_094740) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_14_003030) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "daily_records", force: :cascade do |t|
+    t.date "date"
+    t.integer "male_count"
+    t.integer "female_count"
+    t.decimal "male_avg_age"
+    t.decimal "female_avg_age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", primary_key: "uuid", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "gender"

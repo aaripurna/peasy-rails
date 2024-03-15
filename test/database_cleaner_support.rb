@@ -7,6 +7,7 @@ module DatabaseCleanerSupport
   end
 
   def after_teardown
+    Rails.cache.clear
     DatabaseCleaner.clean
     super
   end
