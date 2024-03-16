@@ -1,10 +1,8 @@
 PATH
-  remote: vendor/plugins/eliquid
+  remote: .
   specs:
     eliquid (0.1.0)
-      liquid (~> 5.4)
       rails (>= 7.1.3.2)
-      temple (~> 0.10.3)
 
 GEM
   remote: https://rubygems.org/
@@ -83,63 +81,23 @@ GEM
       minitest (>= 5.1)
       mutex_m
       tzinfo (~> 2.0)
-    addressable (2.8.6)
-      public_suffix (>= 2.0.2, < 6.0)
-    ast (2.4.2)
     base64 (0.2.0)
-    bigdecimal (3.1.6)
-    bindex (0.8.1)
-    bootsnap (1.18.3)
-      msgpack (~> 1.2)
+    bigdecimal (3.1.7)
     builder (3.2.4)
-    capybara (3.40.0)
-      addressable
-      matrix
-      mini_mime (>= 0.1.3)
-      nokogiri (~> 1.11)
-      rack (>= 1.6.0)
-      rack-test (>= 0.6.3)
-      regexp_parser (>= 1.5, < 3.0)
-      xpath (~> 3.2)
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
-    crack (1.0.0)
-      bigdecimal
-      rexml
     crass (1.0.6)
-    database_cleaner-active_record (2.1.0)
-      activerecord (>= 5.a)
-      database_cleaner-core (~> 2.0.0)
-    database_cleaner-core (2.0.1)
     date (3.3.4)
-    debug (1.9.1)
-      irb (~> 1.10)
-      reline (>= 0.3.8)
-    dotenv (3.1.0)
     drb (2.2.1)
     erubi (1.12.0)
-    et-orbi (1.2.7)
-      tzinfo
-    faraday (2.9.0)
-      faraday-net_http (>= 2.0, < 3.2)
-    faraday-net_http (3.1.0)
-      net-http
-    fugit (1.10.1)
-      et-orbi (~> 1, >= 1.2.7)
-      raabro (~> 1.4)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    hashdiff (1.1.0)
     i18n (1.14.4)
       concurrent-ruby (~> 1.0)
     io-console (0.7.2)
     irb (1.12.0)
       rdoc
       reline (>= 0.4.2)
-    jsbundling-rails (1.3.0)
-      railties (>= 6.0.0)
-    json (2.7.1)
-    language_server-protocol (3.17.0.3)
     liquid (5.4.0)
     loofah (2.22.0)
       crass (~> 1.0.2)
@@ -150,13 +108,9 @@ GEM
       net-pop
       net-smtp
     marcel (1.0.4)
-    matrix (0.4.2)
     mini_mime (1.1.5)
-    minitest (5.22.2)
-    msgpack (1.7.2)
+    minitest (5.22.3)
     mutex_m (0.2.0)
-    net-http (0.4.1)
-      uri
     net-imap (0.4.10)
       date
       net-protocol
@@ -167,29 +121,22 @@ GEM
     net-smtp (0.4.0.1)
       net-protocol
     nio4r (2.7.0)
-    nokogiri (1.16.2-aarch64-linux)
+    nokogiri (1.16.3-aarch64-linux)
       racc (~> 1.4)
-    nokogiri (1.16.2-arm-linux)
+    nokogiri (1.16.3-arm-linux)
       racc (~> 1.4)
-    nokogiri (1.16.2-arm64-darwin)
+    nokogiri (1.16.3-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.16.2-x86-linux)
+    nokogiri (1.16.3-x86-linux)
       racc (~> 1.4)
-    nokogiri (1.16.2-x86_64-darwin)
+    nokogiri (1.16.3-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.16.2-x86_64-linux)
+    nokogiri (1.16.3-x86_64-linux)
       racc (~> 1.4)
-    parallel (1.24.0)
-    parser (3.3.0.5)
-      ast (~> 2.4.1)
-      racc
-    pg (1.5.6)
     psych (5.1.2)
       stringio
-    public_suffix (5.0.4)
     puma (6.4.2)
       nio4r (~> 2.0)
-    raabro (1.4.0)
     racc (1.7.3)
     rack (3.0.9.1)
     rack-session (2.0.0)
@@ -228,90 +175,27 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
-    rainbow (3.1.1)
     rake (13.1.0)
     rdoc (6.6.2)
       psych (>= 4.0.0)
-    redis (5.1.0)
-      redis-client (>= 0.17.0)
-    redis-client (0.21.0)
-      connection_pool
-    regexp_parser (2.9.0)
     reline (0.4.3)
       io-console (~> 0.5)
-    rexml (3.2.6)
-    rubocop (1.62.1)
-      json (~> 2.3)
-      language_server-protocol (>= 3.17.0)
-      parallel (~> 1.10)
-      parser (>= 3.3.0.2)
-      rainbow (>= 2.2.2, < 4.0)
-      regexp_parser (>= 1.8, < 3.0)
-      rexml (>= 3.2.5, < 4.0)
-      rubocop-ast (>= 1.31.1, < 2.0)
-      ruby-progressbar (~> 1.7)
-      unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.31.2)
-      parser (>= 3.3.0.4)
-    rubocop-rails (2.24.0)
-      activesupport (>= 4.2.0)
-      rack (>= 1.1)
-      rubocop (>= 1.33.0, < 2.0)
-      rubocop-ast (>= 1.31.1, < 2.0)
-    ruby-progressbar (1.13.0)
-    rubyzip (2.3.2)
-    selenium-webdriver (4.18.1)
-      base64 (~> 0.2)
-      rexml (~> 3.2, >= 3.2.5)
-      rubyzip (>= 1.2.2, < 3.0)
-      websocket (~> 1.0)
-    sidekiq (7.2.2)
-      concurrent-ruby (< 2)
-      connection_pool (>= 2.3.0)
-      rack (>= 2.2.4)
-      redis-client (>= 0.19.0)
-    sidekiq-cron (1.12.0)
-      fugit (~> 1.8)
-      globalid (>= 1.0.1)
-      sidekiq (>= 6)
-    sprockets (4.2.1)
-      concurrent-ruby (~> 1.0)
-      rack (>= 2.2.4, < 4)
-    sprockets-rails (3.4.2)
-      actionpack (>= 5.2)
-      activesupport (>= 5.2)
-      sprockets (>= 3.0.0)
-    stimulus-rails (1.3.3)
-      railties (>= 6.0.0)
+    sqlite3 (1.7.2-aarch64-linux)
+    sqlite3 (1.7.2-arm-linux)
+    sqlite3 (1.7.2-arm64-darwin)
+    sqlite3 (1.7.2-x86-linux)
+    sqlite3 (1.7.2-x86_64-darwin)
+    sqlite3 (1.7.2-x86_64-linux)
     stringio (3.1.0)
     temple (0.10.3)
     thor (1.3.1)
     timeout (0.4.1)
-    turbo-rails (2.0.5)
-      actionpack (>= 6.0.0)
-      activejob (>= 6.0.0)
-      railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    unicode-display_width (2.5.0)
-    uri (0.13.0)
-    vcr (6.2.0)
-    web-console (4.2.1)
-      actionview (>= 6.0.0)
-      activemodel (>= 6.0.0)
-      bindex (>= 0.4.0)
-      railties (>= 6.0.0)
-    webmock (3.23.0)
-      addressable (>= 2.8.0)
-      crack (>= 0.3.2)
-      hashdiff (>= 0.4.0, < 2.0.0)
     webrick (1.8.1)
-    websocket (1.2.10)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    xpath (3.2.0)
-      nokogiri (~> 1.8)
     zeitwerk (2.6.13)
 
 PLATFORMS
@@ -323,32 +207,11 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  bootsnap
-  capybara
-  database_cleaner-active_record
-  debug
-  dotenv
   eliquid!
-  faraday (~> 2.9)
-  jsbundling-rails
-  pg (~> 1.1)
-  puma (>= 5.0)
-  rails (~> 7.1.3, >= 7.1.3.2)
-  redis
-  rubocop-rails
-  selenium-webdriver
-  sidekiq (~> 7.2)
-  sidekiq-cron (~> 1.12)
-  sprockets-rails
-  stimulus-rails
-  turbo-rails
-  tzinfo-data
-  vcr (~> 6.2)
-  web-console
-  webmock
-
-RUBY VERSION
-   ruby 3.2.2p53
+  liquid (~> 5.4)
+  puma
+  sqlite3
+  temple (~> 0.10.3)
 
 BUNDLED WITH
    2.5.6
