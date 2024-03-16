@@ -1,10 +1,5 @@
-  Hello {{ name }}! age: {{ age }}
-
-  <ul>
-    {% for user in users -%}
-      <li> My Name is {{ user.name.first }} {{ user.gender | not_funny_is_it }}</li>
-    {% endfor %}
-  </ul>
-
-  {{ params.controller }}
-  {{ params.foo }}
+<ul>
+  {% for user in users -%}
+    <li> My Name is {{ user.name.first }} {{ user.gender | not_funny_is_it }}</li>
+  {% endfor %}
+</ul>

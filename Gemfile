@@ -7,6 +7,7 @@ gem 'bootsnap', require: false
 gem 'eliquid', path: 'vendor/plugins/eliquid'
 gem 'faraday', '~> 2.9'
 gem 'jsbundling-rails'
+gem 'pagy', '~> 7.0'
 gem 'pg', '~> 1.1'
 gem 'puma', '>= 5.0'
 gem 'rails', '~> 7.1.3', '>= 7.1.3.2'

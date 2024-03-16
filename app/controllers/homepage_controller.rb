@@ -1,7 +1,7 @@
 class HomepageController < ApplicationController
   def home
-    @name = 'Nawa'
-    @users = User.all.to_a.map(&:as_json)
-    render 'home', locals: { age: 20 }
+    pagination, users = pagy(User)
+    @pagination = pagination.as_json
+    @users = users.as_json
   end
 end
