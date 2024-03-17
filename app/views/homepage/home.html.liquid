@@ -1,5 +1,26 @@
 <div class="main-content">
-  <div class="relative overflow-x-auto">
+  <div class="relative overflow-x-auto mb-10">
+    <div class="grid grid-cols-4 gap-6 py-5 px-3 bg-gray-500">
+      <div class="rounded-lg bg-white py-5">
+        <h2 class="text-center text-3xl font-bold py-5">Male Count</h2>
+        <p class="text-center text-2xl font-bold">{{ daily_record.male_count }}</p>
+      </div>
+      <div class="rounded-lg bg-white py-5">
+        <h2 class="text-center text-3xl font-bold py-5">Female Count</h2>
+        <p class="text-center text-2xl font-bold">{{ daily_record.female_count }}</p>
+      </div>
+      <div class="rounded-lg bg-white py-5">
+        <h2 class="text-center text-3xl font-bold py-5">Male Average Age</h2>
+        <p class="text-center text-2xl font-bold">{{ daily_record.male_avg_age | round: 2 }}</p>
+      </div>
+      <div class="rounded-lg bg-white py-5">
+        <h2 class="text-center text-3xl font-bold py-5">Female Average Age</h2>
+        <p class="text-center text-2xl font-bold">{{ daily_record.female_avg_age | round: 2 }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative overflow-x-auto mb-10">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400" id="user-table">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -46,5 +67,22 @@
           {% endfor %}
         </tbody>
     </table>
+
+    <div class="text-center mt-6">
+      {{ pagination | pagination_view }}
+    </div>
+  </div>
+
+  <div class="relative overflow-x-auto">
+    <h2 class="text-3xl mb-10">User Charts</h2>
+
+    <div class="grid grid-cols-2 gap-6 py-5 px-3 bg-gray-500" data-controller="chart">
+      <div class="rounded-lg bg-white py-5">
+        <canvas data-chart-target="counts"></canvas>
+      </div>
+      <div class="rounded-lg bg-white py-5">
+        <canvas data-chart-target="average"></canvas>
+      </div>
+    </div>
   </div>
 </div>
