@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main-content {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}

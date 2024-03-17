@@ -3,12 +3,9 @@
 require 'temple'
 
 module Eliquid
-  class RailsTemplate < Temple::Templates::Rails # rubocop:disable Style/Documentation
+  class RailsTemplate # rubocop:disable Style/Documentation
     def self.call(template, source = nil)
-      options.update(engine: Engine)
-
-      str = new.call(template, source)
-      %|Eliquid::Renderer.new("#{str}").render(self, local_assigns)|
+      %|Eliquid::Renderer.new(#{template.source.inspect}).render(self, local_assigns)|
     end
   end
 end

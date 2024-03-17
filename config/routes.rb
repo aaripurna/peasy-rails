@@ -3,6 +3,9 @@ require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
   root 'homepage#home'
+
+  delete '/delete_user/:uuid', to: 'homepage#delete_user', as: :delete_user
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
