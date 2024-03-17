@@ -1,24 +1,46 @@
-# README
+# About
+this repository is a full stack web application powered by Ruby On Rails.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Requirements
+- Ruby Version 3.2.2
+- Bundler Version  2.5.6
+- PostgresSQL
+- Redis (for caching and sidekiq)
+- Bun 1.x.x (for frontend assets processing)
 
-Things you may want to cover:
+# Getting Started
+First please install [ruby](https://github.com/rbenv/rbenv), [bundler](https://bundler.io/), [rails](https://rubyonrails.org/), [bun](https://bun.sh/), and aslo postgreSQL and Redis (it's easier to use Docker)
+copy the .env.example into .env
+```sh
+cp .env.example .env
+```
 
-* Ruby version
+and update these following value
+```
+DB_HOST=127.0.0.1
+DB_USERNAME=postgres
+DB_PASSWORD=
+REDIS_HOST=redis://127.0.0.1:6379/0
+CACHE_REDIS_URL=redis://127.0.0.1:6379/1
+SIDEKIQ_USER=sidekiq
+SIDEKIQ_PASSWORD=sidekiq_passowrd
+```
 
-* System dependencies
+to run the server
+```sh
+rails s
+```
 
-* Configuration
+to run the entire development servers you need to install foreman to run multiple command concurrently. Don't add it to your local project, it is supposed to be a global binary.
+```sh
+gem install foreman
+```
 
-* Database creation
+to run development servers
+```sh
+foreman s -f Procfile.dev
+```
 
-* Database initialization
+now you can access the webpage on [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+check sidekiq on [http://127.0.0.1:5000/sidekiq](http://127.0.0.1:5000/sidekiq) use the username and password from your  `.env` file
