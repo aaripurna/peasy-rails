@@ -3,3 +3,7 @@ user_updater_hourly:
   class: UserUpdaterHourlyJob
   args:
     - 20
+
+daily_record_recap:
+  cron: "30 23 * * *"
+  class: DailyRecapJob
