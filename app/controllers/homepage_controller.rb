@@ -1,6 +1,10 @@
 class HomepageController < ApplicationController
   def home
-    pagination, users = pagy(User)
+    query = User
+
+    query = query.searchable(params[:search]) if params[:search].present?
+
+    pagination, users = pagy(query)
     @pagination = pagination.as_json
     @users = users.as_json
     @daily_record = DailyRecord.first&.as_json

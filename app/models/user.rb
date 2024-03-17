@@ -10,6 +10,14 @@ class User < ApplicationRecord
     female: 'female'
   }
 
+  scope :searchable, lambda { |term|
+    if term.present?
+      where(%(CONCAT(name->'title', name->'first', name->'last') ILIKE ?), "%#{term}%")
+    else
+      self
+    end
+  }
+
   def updatable_attributes
     slice('uuid', 'gender', 'name', 'location', 'age')
   end
