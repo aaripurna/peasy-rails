@@ -3,6 +3,12 @@ class HomepageController < ApplicationController
     pagination, users = pagy(User)
     @pagination = pagination.as_json
     @users = users.as_json
+    @daily_record = DailyRecord.first&.as_json
+  end
+
+  def user_counts
+    daily_record = DailyRecord.first&.as_json
+    render json: daily_record || {}, status: :ok
   end
 
   def delete_user

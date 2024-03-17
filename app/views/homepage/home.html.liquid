@@ -3,19 +3,19 @@
     <div class="grid grid-cols-4 gap-6 py-5 px-3 bg-gray-500">
       <div class="rounded-lg bg-white py-5">
         <h2 class="text-center text-3xl font-bold py-5">Male Count</h2>
-        <p class="text-center text-2xl font-bold">{{ daily_record.male_count }}</p>
+        <p id="male-count-text" class="text-center text-2xl font-bold">{{ daily_record.male_count }}</p>
       </div>
       <div class="rounded-lg bg-white py-5">
         <h2 class="text-center text-3xl font-bold py-5">Female Count</h2>
-        <p class="text-center text-2xl font-bold">{{ daily_record.female_count }}</p>
+        <p id="female-count-text" class="text-center text-2xl font-bold">{{ daily_record.female_count }}</p>
       </div>
       <div class="rounded-lg bg-white py-5">
         <h2 class="text-center text-3xl font-bold py-5">Male Average Age</h2>
-        <p class="text-center text-2xl font-bold">{{ daily_record.male_avg_age | round: 2 }}</p>
+        <p id="male-avg-age-text"  class="text-center text-2xl font-bold">{{ daily_record.male_avg_age | round: 2 }}</p>
       </div>
       <div class="rounded-lg bg-white py-5">
         <h2 class="text-center text-3xl font-bold py-5">Female Average Age</h2>
-        <p class="text-center text-2xl font-bold">{{ daily_record.female_avg_age | round: 2 }}</p>
+        <p id="female-avg-age-text" class="text-center text-2xl font-bold">{{ daily_record.female_avg_age | round: 2 }}</p>
       </div>
     </div>
   </div>

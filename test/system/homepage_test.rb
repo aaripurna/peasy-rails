@@ -14,6 +14,7 @@ class HomepageTest < ApplicationSystemTestCase
     assert_text 'NAME AGE GENDER CREATED AT ACTION'
 
     assert_equal 20, all('#user-table tbody tr').size
+    find('#male-count-text').assert_text '11'
   end
 
   test 'delete user' do
