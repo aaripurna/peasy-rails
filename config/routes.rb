@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'homepage#home'
 
   delete '/delete_user/:uuid', to: 'homepage#delete_user', as: :delete_user
+  get :user_counts, to: 'homepage#user_counts'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
